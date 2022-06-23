@@ -18,7 +18,8 @@ export const Line = styled.hr`
 `
 
 export const Wrapper = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: 20fr 50fr 30fr;
     div{
         margin: 15px;
     }
@@ -26,8 +27,7 @@ export const Wrapper = styled.div`
         color: #999999;
         font-size: 12px;
         margin: 15px;
-        position: absolute;
-        margin-left: 759px;
+   
     }
     }
     img{

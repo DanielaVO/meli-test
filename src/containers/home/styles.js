@@ -2,12 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div``
 export const Wrapper = styled.div`
-    background-color: white;
-    height: 600px;
+    background-color: white;  
     border-radius: 5px;
     margin: 0px 250px 250px 250px;
     display: block;
-    padding: 2px;
 `
 export const Breadcrumb = styled.div`
     margin-left: 250px;

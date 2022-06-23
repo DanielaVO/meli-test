@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Search } from '@/components/search-bar/Search';
-import { ItemList } from '@/components/item-list/ItemList';
+import { Item } from '@/components/item/Item';
 import { Container, Wrapper, Breadcrumb } from "./styles"
-import { ItemDetails } from '@/components/item-details/ItemDetails';
 
 export const Home = () => {
+    const [response, setResponse] = useState([]);
+    const setItemsList = (itemsList) => {
+        setResponse(itemsList)
+    }
 
     return (
         <Container>
-            <Search />
+            <Search setItems={setItemsList} />
             <Breadcrumb className="mg-top-16 mg-bt-16">
-                <p>Category</p>
+                <p>{response.categories ? response.categories.join(" > ") : ''}</p>
             </Breadcrumb>
             <Wrapper>
-                <ItemList />
+                {response.items && response.items.map((item) =>
+                    <Item
+                        key={item.id}
+                        id={item.id}
+                        picture={item.picture}
+                        title={item.title}
+                        price={item.price}
+                        location={item.location}
+                    />)}
             </Wrapper>
         </Container >
     )

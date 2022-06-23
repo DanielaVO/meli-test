@@ -13,9 +13,9 @@ router.get('/', async function (req, res) {
   if (req.query.q && req.query.q.trim()) {
     const response = await fetch(`${process.env.API_ML_PRODUCTS_SEARCHER}?q=${req.query.q}`)
     const { filters, results } = await response.json()
-
     let categories = [];
     let items = [];
+
     if (results) {
       categories = (filters || [])
         .filter(category => category.id === "category")
@@ -27,16 +27,16 @@ router.get('/', async function (req, res) {
         )
         .find(() => true);
 
-      let Allresults = results || [];
-      for (let i = 0; i < 4 && i < Allresults.length; i++) {
-        let article = Allresults[i];
+      let all_results = results || [];
+      for (let i = 0; i < 4 && i < all_results.length; i++) {
+        let article = all_results[i];
         items.push({
           id: article.id,
           title: article.title,
           price: {
             currency: article.currency_id,
-            amount: article.available_quantity,
-            decimals: article.price
+            amount: article.price,
+            decimals: article.available_quantity 
           },
           picture: article.thumbnail,
           condition: article.condition,
@@ -53,8 +53,8 @@ router.get('/', async function (req, res) {
       categories,
       items
     });
-
-
+  } else {
+    res.send("Ha ocurrido un error");
   }
 });
 
