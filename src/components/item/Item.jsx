@@ -6,31 +6,10 @@ import { Link } from "react-router-dom";
  * Item Component
  */
 export const Item = ({ id, picture, title, price, location }) => {
-    const [item, setItem] = useState([]);
-
     const price_format = new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'USD', minimumFractionDigits: price.decimals < 3 ? price.decimals : 2,
-        minimumFractionDigits: 0
+        currency: 'USD', minimumFractionDigits: price.decimals < 3 ? price.decimals : 2
     }).format(price.amount);
-
-    const getItemAPI = async () => {
-        fetch(`http://localhost:9000/items/${id}`, {
-            method: 'GET',
-            headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            })
-        })
-            .then(response => response.json())
-            .then(data => {
-                setItem(data);
-            }
-            )
-            .catch(error => {
-                console.error(error);
-            });
-    }
 
     return (
         <>

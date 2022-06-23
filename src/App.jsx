@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import GlobalStyles from "./styles/GlobalStyles"
 import { Home } from "./containers/home/Home"
-import { ItemDetails } from '@/components/Item-details/ItemDetails';
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ItemDetails } from '@/components/item-details/ItemDetails';
+import { Items } from '@/components/items/Items';
+import { BrowserRouter as Router, Outlet, Route, Routes } from "react-router-dom";
 
 /**
  * App router
  */
 function App() {
+  const [response, setResponse] = useState([]);
+  const setItemsList = (itemsList) => {
+    setResponse(itemsList)
+  }
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/items/:id" element={<ItemDetails />} />
+        <Route path="/" element={<Home setItemsList={setItemsList} response={response} />}>
+          <Route path="items" element={<Outlet />} >
+            <Route index element={<Items response={response} />} />
+            <Route path=":id" element={<ItemDetails />} />
+          </Route>
+        </Route>
         <Route
           path="*"
           element={

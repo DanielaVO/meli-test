@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Container, Wrapper, Input, IconButton } from "./styles"
 
 /**
@@ -6,8 +7,10 @@ import { Container, Wrapper, Input, IconButton } from "./styles"
  */
 export const Search = ({ setItems }) => {
     const [input, setInput] = useState(null);
+    let navigate = useNavigate();
 
     const getItemsAPI = async () => {
+        navigate("/items?search=" + input);
         fetch(`http://localhost:9000/items?q=${input}`, {
             method: 'GET',
             headers: new Headers({

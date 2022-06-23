@@ -1,34 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Search } from '@/components/search-bar/Search';
-import { Item } from '@/components/item/Item';
 import { Container, Wrapper, Breadcrumb } from "./styles"
+import { SEO } from '@/components/SEO/Seo';
+import { Outlet } from "react-router-dom";
 
 /**
  * Home Container
  */
-export const Home = () => {
-    const [response, setResponse] = useState([]);
-    const setItemsList = (itemsList) => {
-        setResponse(itemsList)
-    }
+export const Home = ({ setItemsList, response }) => {
 
     return (
         <Container>
+            <SEO />
             <Search setItems={setItemsList} />
             <Breadcrumb className="mg-top-16 mg-bt-16">
                 <p>{response.categories ? response.categories.join(" > ") : ''}</p>
             </Breadcrumb>
-            <Wrapper>
-                {response.items && response.items.map((item) =>
-                    <Item
-                        key={item.id}
-                        id={item.id}
-                        picture={item.picture}
-                        title={item.title}
-                        price={item.price}
-                        location={item.location}
-                    />)}
-            </Wrapper>
+            <Wrapper><Outlet /></Wrapper>
         </Container >
     )
 }
