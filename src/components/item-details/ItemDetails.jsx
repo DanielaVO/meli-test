@@ -1,7 +1,9 @@
 import React from 'react'
 import { Panel, Info, SaleDetails, Column, ButtonSale } from './styles'
 
-
+/**
+ * Item details Component
+ */
 export const ItemDetails = () => {
     return (
         <>

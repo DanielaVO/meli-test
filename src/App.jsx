@@ -4,6 +4,9 @@ import { Home } from "./containers/home/Home"
 import { ItemDetails } from '@/components/Item-details/ItemDetails';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+/**
+ * App router
+ */
 function App() {
   return (
     <Router>

@@ -36,7 +36,7 @@ router.get('/', async function (req, res) {
           price: {
             currency: article.currency_id,
             amount: article.price,
-            decimals: article.available_quantity 
+            decimals: article.available_quantity
           },
           picture: article.thumbnail,
           condition: article.condition,
@@ -69,13 +69,14 @@ router.get('/:id', async function (req, res) {
 
   let categories = (category_json.path_from_root || [])
     .map(path => path.name);
+
   let item = {
     id: article.id,
     title: article.title,
     price: {
       currency: article.currency_id,
-      amount: article.available_quantity,
-      decimals: article.price
+      amount: article.price,
+      decimals: article.available_quantity
     },
     picture: article.pictures && article.pictures.length > 0 ? article.pictures[0].url : article.thumbnail,
     condition: article.condition,

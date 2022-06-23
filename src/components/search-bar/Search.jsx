@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Container, Wrapper, Input, IconButton } from "./styles"
 
+/**
+ * Search Component
+ */
 export const Search = ({ setItems }) => {
     const [input, setInput] = useState(null);
 

@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { Card, Line, Wrapper } from "./styles"
 import { Link } from "react-router-dom";
 
+/**
+ * Item Component
+ */
 export const Item = ({ id, picture, title, price, location }) => {
     const [item, setItem] = useState([]);
 

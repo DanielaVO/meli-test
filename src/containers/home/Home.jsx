@@ -3,6 +3,9 @@ import { Search } from '@/components/search-bar/Search';
 import { Item } from '@/components/item/Item';
 import { Container, Wrapper, Breadcrumb } from "./styles"
 
+/**
+ * Home Container
+ */
 export const Home = () => {
     const [response, setResponse] = useState([]);
     const setItemsList = (itemsList) => {
