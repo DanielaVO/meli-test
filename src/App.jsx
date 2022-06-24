@@ -27,7 +27,7 @@ function App() {
           path="*"
           element={
             <main style={{ padding: "1rem" }}>
-              <p>404</p>
+              <h2>404</h2>
             </main>
           }
         />

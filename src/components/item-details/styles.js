@@ -9,7 +9,6 @@ img{
 export const Panel = styled.div`
     display: grid;
     grid-template-columns: 67fr 33fr;
-    background-color: green;
 `
 
 export const Info = styled.div`
@@ -18,6 +17,7 @@ export const Info = styled.div`
 }
 .product-description{
     font-size: 16px;
+    text-align: justify;
 }
 `
 
@@ -26,7 +26,7 @@ export const SaleDetails = styled.div`
     font-size: 24px;
 }
 .product-price{
-    font-size: 46px;
+    font-size: 36px;
 }
 .product-new{
     font-size: 14px;

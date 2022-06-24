@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Card, Line, Wrapper } from "./styles"
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,8 @@ import { Link } from "react-router-dom";
 export const Item = ({ id, picture, title, price, location }) => {
     const price_format = new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'USD', minimumFractionDigits: price.decimals < 3 ? price.decimals : 2
+        currency: 'USD',
+        minimumFractionDigits: price.decimals < 3 ? price.decimals : 2
     }).format(price.amount);
 
     return (
