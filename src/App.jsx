@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Outlet, Route, Routes } from "react-router-dom
  */
 function App() {
   const [response, setResponse] = useState([]);
+  const [categories, setCategories] = useState([]);
   const setItemsList = (itemsList) => {
     setResponse(itemsList)
   }
@@ -17,10 +18,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home setItemsList={setItemsList} response={response} />}>
+        <Route path="/" element={<Home setItemsList={setItemsList} categories={categories} setCategories={setCategories} />}>
           <Route path="items" element={<Outlet />} >
             <Route index element={<Items response={response} />} />
-            <Route path=":id" element={<ItemDetails />} />
+            <Route path=":id" element={<ItemDetails setCategories={setCategories} />} />
           </Route>
         </Route>
         <Route

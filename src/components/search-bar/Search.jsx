@@ -5,7 +5,7 @@ import { Container, Wrapper, Input, IconButton } from "./styles"
 /**
  * Search Component
  */
-export const Search = ({ setItems }) => {
+export const Search = ({ setItems, setCategories }) => {
     const [input, setInput] = useState(null);
     let navigate = useNavigate();
 
@@ -21,6 +21,7 @@ export const Search = ({ setItems }) => {
             .then(response => response.json())
             .then(data => {
                 setItems(data);
+                setCategories(data.categories);
             }
             )
             .catch(error => {

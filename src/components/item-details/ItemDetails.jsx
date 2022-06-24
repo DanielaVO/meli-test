@@ -5,7 +5,7 @@ import { Panel, Info, SaleDetails, Column, ButtonSale } from './styles'
 /**
  * Item details Component
  */
-export const ItemDetails = () => {
+export const ItemDetails = ({ setCategories }) => {
     let { id } = useParams();
     const [product, setProduct] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -26,6 +26,7 @@ export const ItemDetails = () => {
         }).then(response => response.json())
             .then(data => {
                 setProduct(data);
+                setCategories(data.categories);
                 setLoading(false);
                 setError(null);
             }).catch(error => {
@@ -43,7 +44,7 @@ export const ItemDetails = () => {
 
     return (
         <>
-            <Panel>
+            {!loading && !error ? <Panel>
                 <Column>
                     <img className="mg-rg-32" src={product?.item?.picture} alt="product image" />
                     <Info>
@@ -59,7 +60,8 @@ export const ItemDetails = () => {
                         <ButtonSale className="mg-rg-32"><p>Comprar</p></ButtonSale>
                     </SaleDetails>
                 </Column>
-            </Panel>
+            </Panel> : "loandiiinggg"}
+
         </>
     )
 };
