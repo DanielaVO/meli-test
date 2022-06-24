@@ -60,7 +60,7 @@ export const ItemDetails = ({ setCategories }) => {
                         <ButtonSale className="mg-rg-32"><p>Comprar</p></ButtonSale>
                     </SaleDetails>
                 </Column>
-            </Panel> : "loandiiinggg"}
+            </Panel> : ""}
 
         </>
     )
